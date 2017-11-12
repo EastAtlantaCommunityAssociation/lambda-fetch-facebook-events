@@ -10,7 +10,7 @@ function fetchEvents(appId, secret) {
 var AWS = require('aws-sdk');
 
 exports.handler = function(event, context, callback) {
-  fetchEvents().then(function(response) {
+  fetchEvents(process.env.FB_APP_ID, process.env.FB_APP_SECRET).then(function(response) {
     callback(null, response.data);
   });
 }
